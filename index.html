@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home &mdash; Coffee Buzz Haven</title>
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="./resources/images/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="./resources/css/layout.css" />
+    <link rel="stylesheet" href="./resources/css/style.css" />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha512-9BwLAVqqt6oFdXohPLuNHxhx36BVj5uGSGmizkmGkgl3uMSgNalKc/smum+GJU/TTP0jy0+ruwC3xNAk3F759A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- js -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const NavEl = document.querySelector(".header");
+        const mobileToggleMenuBtn = document.querySelector(".toggle__menu");
+
+        // mbl navigation
+
+        mobileToggleMenuBtn.addEventListener("click", (e) => {
+          NavEl.classList.toggle("nav__open");
+        });
+
+        // search bar
+
+        const navSearchContainerEl = document.querySelector(
+          ".search__dropdown__container"
+        );
+        const searchToggleBtnEl = document.querySelector(".btn__search");
+        // search drop down
+        searchToggleBtnEl.addEventListener("click", (e) => {
+          navSearchContainerEl.classList.remove(
+            "search__open",
+            "search__close"
+          );
+          navSearchContainerEl.classList.add("search__open");
+        });
+
+        document.addEventListener("click", (e) => {
+          console.log(e?.target);
+          console.log(
+            e?.target
+              ?.closest(".search__dropdown__container")
+              ?.classList.contains("search__open")
+          );
+          if (
+            !e?.target?.closest(".search__dropdown__container") &&
+            document
+              .querySelector(".search__dropdown__container")
+              ?.classList?.contains("search__open")
+          ) {
+            // navSearchContainerEl.classList.remove("search__open");
+            navSearchContainerEl.classList.add("search__close");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- start of main header/ banner -->
+    <header class="header">
+      <!-- start of main navigation bar -->
+      <nav class="navbar" role="navigation" aria-label="primary navigation">
+        <!-- start of navbar container as we have some fixed width and background color -->
+        <div class="navbar__container container">
+          <!-- start of main logo -->
+          <a href="" class="nav__brand__logo">
+            <img
+              src="./resources/images/image_2024-03-30_190459067-removebg-preview.png"
+              alt=""
+              class="nav__logo"
+            />
+          </a>
+          <!-- end of main logo -->
+
+          <!-- start of site navigation links container -->
+          <ul class="nav__list">
+            <!-- start of link item -->
+            <li class="nav__item">
+              <a href="#Home" class="nav__link">Home</a>
+            </li>
+            <!-- end of link item -->
+            <!-- start of link item -->
+            <li class="nav__item">
+              <a href="#About" class="nav__link">About</a>
+            </li>
+            <!-- end of link item -->
+            <!-- start of link item -->
+            <li class="nav__item">
+              <a href="#Menu" class="nav__link">Menu</a>
+            </li>
+            <!-- end of link item -->
+            <!-- start of link item -->
+            <li class="nav__item">
+              <a href="#Products" class="nav__link">Products</a>
+            </li>
+            <!-- end of link item -->
+            <!-- start of link item -->
+            <li class="nav__item">
+              <a href="#Reviews" class="nav__link">Reviews</a>
+            </li>
+            <!-- end of link item -->
+            <!-- start of link item -->
+            <li class="nav__item">
+              <a href="#Contact" class="nav__link">Contact</a>
+            </li>
+            <!-- end of link item -->
+            <!-- start of link item -->
+            <li class="nav__item">
+              <a href="#Blogs" class="nav__link">Blogs</a>
+            </li>
+            <!-- end of link item -->
+          </ul>
+          <!-- end of site navigation links container -->
+          <!-- start of user action nav links/item container -->
+          <ul class="user__nav__action">
+            <!-- start of search bar container -->
+            <li class="search__dropdown__container">
+              <!-- start of search bar button which user click to open, slide and scale search bar -->
+              <button class="btn__search">
+                <svg
+                  class="search__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#000000"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                  ></path>
+                </svg>
+              </button>
+              <!-- end of search bar button which user click to open, slide and scale search bar -->
+
+              <div class="search__dropdown" role="search">
+                <input type="search" class="nav__search__field" />
+                <button class="search-submit-btn" aria-label="search button">
+                  <svg
+                    class="search__icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <!-- end of search bar input  -->
+            </li>
+            <!-- end of search bar container -->
+            <!-- start of cart icon and cart container -->
+            <li
+              class="cart__dropdown dropdown__container"
+              aria-label="cart button"
+            >
+              <!-- start of cart icon link-->
+              <a href="#" class="cart__icon__container">
+                <svg
+                  class="cart__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#000000"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"
+                  ></path>
+                </svg>
+              </a>
+              <!-- end of cart icon link-->
+              <!-- start of cart dropdown container -->
+              <div class="cart__dropdown__container dropdown">
+                <!-- start of total item in cart -->
+                <div class="dropdown__item__amount">0 items</div>
+                <!-- end of total item in cart -->
+                <!-- start of actual cart dropdown -->
+                <ul class="cart__dropdown__menu">
+                  <!-- start of cart dropdown item container -->
+                  <li class="cart__dropdown__item__container">
+                    <!-- start to cart item -->
+                    <article class="cart__dropdown__item">
+                      <!-- start of cart item header -->
+                      <header class="cart__dropdown__item__header">
+                        <!-- start of cart item img container -->
+                        <figure class="cart__product__img__container">
+                          <!-- start of cart item img  -->
+                          <img
+                            class="cart__product__img"
+                            src="./resources/images/coffee-821490_1280.jpg"
+                            alt=""
+                          />
+                          <!-- end of cart item img  -->
+                        </figure>
+                        <!-- end of cart item img container -->
+
+                        <!-- start of cart item intro/info -->
+                        <div class="dropdown__product__info">
+                          <!-- start of cart item title -->
+                          <h4 class="dropdown__product__title">title</h4>
+                          <!-- end of cart item title -->
+                          <!--start of cart item inventory details -->
+                          <div class="dropdown__product__details">
+                            <!-- start of cart item amount in cart -->
+                            <div class="dropdown__product__amount">x2</div>
+                            <!-- end of cart item amount in cart -->
+                            <!-- start of single unit price of cart item -->
+                            <div class="dropdown__product__price">
+                              &dollar;300
+                            </div>
+                            <!-- end of single unit price of cart item -->
+                          </div>
+                          <!--end of cart item inventory details -->
+                        </div>
+                        <!-- end of cart item intro/info -->
+                      </header>
+                      <!-- end of cart item header -->
+                      <!-- start of cart item footer / btn container -->
+                      <footer class="dropdown__footer">
+                        <button
+                          class="dropdown__remove__cart__item"
+                          type="button"
+                          aria-label="remove product from cart"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                            />
+                          </svg>
+                        </button>
+                      </footer>
+                      <!-- end of cart item footer / btn container -->
+                    </article>
+                  </li>
+                  <!-- end of cart dropdown item container -->
+                </ul>
+                <!-- end of actual cart dropdown -->
+                <!-- start of cart dropdown footer/ btn container -->
+                <div class="cart__dropdown__btn__container">
+                  <!-- start of btn item -->
+                  <a href="" class="btn cart__dropdown__btn">View Cart</a>
+                  <!-- end of btn item -->
+                  <!-- start of btn item -->
+                  <a href="" class="btn cart__dropdown__btn">Checkout</a>
+                  <!-- end of btn item -->
+                </div>
+                <!-- end of cart dropdown footer/ btn container -->
+              </div>
+              <!-- end of of cart dropdown container -->
+            </li>
+            <!-- end of cart icon and cart container -->
+            <li class="user__dropdown dropdown__container">
+              <a href="#" class="user__profile__icon">
+                <svg
+                  class="profile__icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#000000"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"
+                  ></path>
+                </svg>
+              </a>
+
+              <div class="dropdown">
+                <ul class="dropdown__menu">
+                  <li class="dropdown__item">
+                    <a href="" class="dropdown__link"> Login </a>
+                  </li>
+
+                  <li class="dropdown__item">
+                    <a href="" class="dropdown__link"> Registration </a>
+                  </li>
+                  <li class="dropdown__item">
+                    <a href="" class="dropdown__link"> My Account </a>
+                  </li>
+                  <li class="dropdown__item">
+                    <a href="" class="dropdown__link"> My Orders </a>
+                  </li>
+                  <li class="dropdown__item">
+                    <a href="" class="dropdown__link"> My Cart </a>
+                  </li>
+                  <li class="dropdown__item">
+                    <a href="" class="dropdown__link"> My Cart logout</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <!-- start of mobile nav menu btn container -->
+            <li>
+              <!-- start of menu btn -->
+              <button class="toggle__menu" aria-label="toggle menu button">
+                <!-- start of menu icon -->
+                <div class="menu__icon">
+                  <div>&nbsp</div>
+                </div>
+                <!-- end of menu icon -->
+              </button>
+              <!-- end of menu btn -->
+            </li>
+            <!-- start of mobile nav menu btn -->
+          </ul>
+          <!-- end of user action nav links/item container -->
+        </div>
+        <!-- end of navbar container  -->
+      </nav>
+      <!-- end of main navigation bar -->
+      <!-- start of mobile nav background overlay its purpose is just act as a background under the nav items -->
+      <div
+        class="nav__background__overlay"
+        class="mobile__nav__overlay"
+        aria-label="mobile menu overlay"
+      ></div>
+      <!-- end of mobile nav background  -->
+    </header>
+    <!-- end of main header/ banner -->
+    <main class="">
+      <section class="hero">
+        <div class="container hero__container">
+          <div class="hero__text__container">
+            <header class="hero__header">
+              <h1 class="hero__heading">
+                <span class="hero__heading__accent">Awaken</span>
+                <span>Your Senses with Every Sip </span>
+              </h1>
+            </header>
+            <p class="hero__text">
+              Hella next level chartreuse subway tile actually sartorial, migas
+              fanny pack organic kombucha pork belly activated charcoal echo
+              park. La croix literally chartreuse,
+            </p>
+            <footer class="btn__container">
+              <a href="" class="btn cta__btn">Get it now</a>
+            </footer>
+          </div>
+          <figure class="hero__img__container">
+            <img
+              class="hero__img"
+              src="./resources/images/cup_2-removebg-preview.png"
+              alt="pouring milk in coffee"
+            />
+          </figure>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
